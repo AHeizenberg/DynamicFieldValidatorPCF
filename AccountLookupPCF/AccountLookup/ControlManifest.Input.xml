@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="AccountLookupPCF" constructor="AccountLookup" version="3.4.1" display-name-key="DynamicValidatorPCF" description-key="DynamicValidatorPCF description" control-type="virtual">
+    
+    <!--
+    <external-service-usage enabled="true">
+      <domain>org.crm.dynamics.com</domain>
+    </external-service-usage>
+    -->
+    
+    <!-- Properties for API URL and User Input -->
+    <!-- <property name="EnvironmentURL" display-name-key="Environment URL" description-key="The URL of the Dynamics environment to connect to." of-type="SingleLine.Text" usage="input" required="true" /> -->
+    <property name="userInput" display-name-key="User Input" description-key="The input provided by the user for column lookup." of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="headerContent" display-name-key="Header Content" description-key="The content to display in the header of the lookup component." of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="headerFontColor" display-name-key="Header Font Color" description-key="The font color for the header text." of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="PlaceHolderContent" display-name-key="Placeholder Content" description-key="The placeholder text to show in the input field before the user types anything." of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="filterColumnLogicalName" display-name-key="Filter Column Name" description-key="The logical name of the column to filter the table results on." of-type="SingleLine.Text" usage="input" required="true"/>
+    <property name="identifierColumnLogicalName" display-name-key="Identifier Column Name" description-key="The logical name of the column to use as the unique identifier for table." of-type="SingleLine.Text" usage="input" required="true"/>
+    <property name="pluralTableLogicalName" display-name-key="Table Logical Name (Plural)" description-key="The logical name of the table containing the data to be looked up." of-type="SingleLine.Text" usage="input" required="true"/>
+    <property name="duplicteDetectedMessage" display-name-key="Duplicate Detected Message" description-key="The message to display when a duplicate record is detected." of-type="SingleLine.Text" usage="input" required="true"/>
+    <property name="noMatchesFoundMessage" display-name-key="No Matches Found Message" description-key="The message to display when no matching records are found." of-type="SingleLine.Text" usage="input" required="true"/>
+    <property name="partialMatchMessage" display-name-key="Partial Match Message" description-key="The message to display when a partial match is found for the records lookup." of-type="SingleLine.Text" usage="input" required="true"/>
+    <!-- Updated filterType Property -->
+    <property name="filterType" display-name-key="Filter Type" description-key="The type of filter to apply to the account lookup results. Choose or to match any criteria or and to match all criteria." of-type="Enum" usage="input" required="true">
+        <value name="or" display-name-key="Or Option" description-key="Filter results by matching any criteria">or</value>
+        <value name="and" display-name-key="And Option" description-key="Filter results by matching all criteria">and</value>
+    </property>
+
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.8.6" />
+      <platform-library name="Fluent" version="8.29.0" />
+    </resources>
+    <!-- 
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
